@@ -5,30 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Aplicacion.Presentacion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="{x:Null}">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" BorderBrush="#FF060606" Background="White">
-            <TabItem x:Name="tabListar" Header="Lista Cliente" Margin="76,0,-96,-2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" BorderBrush="#FF746868" Background="White" Grid.ColumnSpan="2" Foreground="#FF706060">
+            <TabItem x:Name="tabListar" Header="Lista Cliente" Margin="110,-2,-130,0">
                 <Grid x:Name="dgListarCliente" Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0"/>
-                        <ColumnDefinition Width="29*"/>
-                        <ColumnDefinition Width="66*"/>
-                        <ColumnDefinition Width="298*"/>
+                        <ColumnDefinition Width="128*"/>
+                        <ColumnDefinition Width="265*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Seguros BeLife Listado Cliente" Grid.Column="3" HorizontalAlignment="Left" Margin="50,129,0,0" VerticalAlignment="Top" FontSize="22" Height="39" Width="303"/>
-                    <DataGrid Name="dgListarClientes" Grid.ColumnSpan="4" HorizontalAlignment="Left" Height="194" Margin="22,187,0,0" VerticalAlignment="Top" Width="736"/>
+                    <Label Content="Seguros BeLife Listado Cliente" Grid.Column="1" HorizontalAlignment="Left" Margin="238,110,0,0" VerticalAlignment="Top" FontSize="22" Height="39" Width="303" Grid.ColumnSpan="2"/>
+                    <DataGrid Name="dgListarClientes" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="194" Margin="22,187,0,0" VerticalAlignment="Top" Width="736" />
+                    <Button x:Name="btnFiltrar" Grid.ColumnSpan="3" Content="Filtrar" HorizontalAlignment="Left" Margin="208,162,0,0" VerticalAlignment="Top" Width="75" Click="btnFiltrar_Click" Height="23"/>
+                    <TextBox x:Name="txtFiltrarRegistro" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="22,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"  />
+
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabActualizar" Header="Actualizar" Margin="97,0,-101,-2">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="6*"/>
-                        <ColumnDefinition Width="125*"/>
-                    </Grid.ColumnDefinitions>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Registrar" Cursor="None" Margin="-140,0,124,-2" BorderBrush="#FFB62020" Foreground="Black" Background="#FF783838">
+            <TabItem Header="Registrar Cliente" Cursor="None" Margin="-78,-2,0,0" BorderBrush="#FFACACAC" Foreground="Black" Background="#FFE5E5E5" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="112">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.003"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
                 <Grid x:Name="tabRegistrar" Margin="0,31,0,-1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
@@ -36,44 +42,101 @@
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="775*"/>
                     </Grid.ColumnDefinitions>
-                    <Image Grid.Column="3" Margin="211,19,269,289" Source="Logo BeLife.png" Stretch="Fill"/>
                     <Label Content="Seguros BeLife Registro" Grid.Column="3" HorizontalAlignment="Left" Margin="268,92,0,0" VerticalAlignment="Top" FontSize="22" Height="39" Width="238"/>
                     <Label x:Name="lblNombres" Content="Nombres" Grid.Column="3" HorizontalAlignment="Left" Margin="63,167,0,0" VerticalAlignment="Top" Height="26" Width="59"/>
                     <Label x:Name="lblApellido" Content="Apellidos" Grid.Column="3" HorizontalAlignment="Left" Margin="63,207,0,0" VerticalAlignment="Top" Width="59" Height="26" RenderTransformOrigin="0.593,0.385"/>
                     <TextBox x:Name="txtNombres" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="141,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
                     <TextBox x:Name="txtApellidos" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="141,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
                     <Label x:Name="lblFechaNacimiento" Content="Fecha Nacimiento" Grid.Column="3" Margin="26,249,640,86"/>
-                    <TextBox x:Name="txtRut" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="146,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="txtRut" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="140,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                     <DatePicker x:Name="dpInsertarFechaNacimiento" Grid.Column="3" HorizontalAlignment="Left" Margin="140,249,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="lblRut" Content="Rut" Grid.Column="3" HorizontalAlignment="Left" Margin="94,285,0,0" VerticalAlignment="Top"/>
                     <Label Content="Sexo" Grid.Column="3" HorizontalAlignment="Left" Margin="440,167,0,0" VerticalAlignment="Top"/>
-                    <ComboBox Name="cbSexo" Width="120" SelectionChanged="ComboBox_SelectionChanged" Grid.Column="3" Margin="489,167,166,171">
-                        <ComboBoxItem Content="Hombre" HorizontalAlignment="Left" Width="118"/>
-                        <ComboBoxItem Content="Mujer" HorizontalAlignment="Left" Width="118"/>
+                    <ComboBox Name="cbSexo" Width="120" Grid.Column="3" Margin="498,167,157,171">
+                        <ComboBoxItem Name="cbHombre" Content="Hombre" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Name="cbMujer" Content="Mujer" HorizontalAlignment="Left" Width="118"/>
                     </ComboBox>
                     <Label x:Name="lblEstadoCivil" Content="Estado Civil" Grid.Column="3" Margin="404,207,300,128"/>
-                    <ComboBox Name="cbEstadoCivil" Width="120" SelectionChanged="ComboBox_SelectionChanged" Grid.Column="3" Margin="489,210,166,128">
-                        <ComboBoxItem Content="Soltero" HorizontalAlignment="Left" Width="118"/>
-                        <ComboBoxItem Content="Casado" HorizontalAlignment="Left" Width="118"/>
-                        <ComboBoxItem Content="Divorciado" HorizontalAlignment="Left" Width="118"/>
-                        <ComboBoxItem Content="Viudo" HorizontalAlignment="Left" Width="118"/>
+                    <ComboBox Name="cbEstadoCivil" Width="120" Grid.Column="3" Margin="498,210,157,128">
+                        <ComboBoxItem Name="cbSoltero" Content="Soltero" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Name="cbCasado" Content="Casado" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Name="cbDivorciado" Content="Divorciado" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Name="cbViudo" Content="Viudo" HorizontalAlignment="Left" Width="118"/>
                     </ComboBox>
-                    <Button x:Name="btnRegistrar" Content="" Grid.Column="3" Margin="498,266,242,66" Click="btnRegistrar_Click">
+                    <Button x:Name="btnRegistrar" Content="Registrar" Grid.Column="3" Margin="498,266,130,53" Click="btnRegistrar_Click">
                         <Button.Background>
-                            <ImageBrush ImageSource="ClientAdd.png"/>
+                            <ImageBrush ImageSource="ClientAdd.png" Stretch="Uniform" >
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform X="0.35"/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
                         </Button.Background>
                     </Button>
                 </Grid>
             </TabItem>
-
-
-
-
-
-
-
-
+            <TabItem x:Name="tabListar_Copy" Header="Registrar Contrato" Margin="0,-2,-18,0" HorizontalAlignment="Right" Width="109">
+                <Grid x:Name="dgListarCliente1" Background="White" Margin="0,-2,1,-3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="35*"/>
+                        <ColumnDefinition Width="122*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Seguros BeLife Registrar Contrato" Grid.Column="2" HorizontalAlignment="Left" Margin="47,129,0,0" VerticalAlignment="Top" FontSize="22" Height="40" Width="338"/>
+                    <Label Grid.ColumnSpan="2" Content="Rut" HorizontalAlignment="Left" Margin="126,195,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.654"/>
+                    <TextBox x:Name="txtRut1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" Margin="169,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" />
+                    <ComboBox x:Name="cbxContratos" HorizontalAlignment="Left" Margin="316,194,0,0" VerticalAlignment="Top" Width="153" Grid.Column="2">
+                        <ComboBoxItem Name="cbVidaInicial" Content="Vida Inicial" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Name="cbVidaTotal" Content="Vida Total" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Name="cbVidaConductor" Content="Vida Conductor" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Name="cbVidaSenior" Content="Vida Senior" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Name="cbVidaAhorro" Content="Vida Ahorro" HorizontalAlignment="Left" Width="118"/>
+                    </ComboBox>
+                    <Label Content="Plan" HorizontalAlignment="Left" Margin="244,193,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.432,0.564" Width="37" Grid.Column="2"/>
+                    <Button x:Name="btnRegistrarContrato" Content="Registrar" HorizontalAlignment="Left" Margin="238,357,0,0" VerticalAlignment="Top" Width="118" Click="btnRegistrarContrato_Click" Grid.Column="2"/>
+                    <Label x:Name="lblHora" HorizontalAlignment="Left" Margin="310,263,0,0" VerticalAlignment="Top" Width="249" Height="78" Grid.Column="2">
+                        <TextBox x:Name="txtDeclaracion" Height="68" TextWrapping="Wrap" Width="239" RenderTransformOrigin="0.494,0.49"/>
+                    </Label>
+                    <DatePicker x:Name="dpInicioVigencia" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="169,306,0,0" VerticalAlignment="Top" IsTodayHighlighted="True"/>
+                    <Label Grid.ColumnSpan="2" Content="Fecha Inicio Vigencia" HorizontalAlignment="Left" Margin="33,304,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Declaración" HorizontalAlignment="Left" Margin="209,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.528,1.308" Grid.Column="2"/>
+                    <Label Grid.ColumnSpan="2" Content="Declaracion salud" HorizontalAlignment="Left" Margin="51,339,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cbxDeclaracionSalud" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="169,343,0,0" VerticalAlignment="Top" Width="120">
+                        <ComboBoxItem Content="Si" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Content="No" HorizontalAlignment="Left" Width="118" />
+                    </ComboBox>
+                    <Label Grid.ColumnSpan="2" Content="Nombres" HorizontalAlignment="Left" Margin="88,231,0,0" VerticalAlignment="Top" Width="66"/>
+                    <TextBox x:Name="txtNombreCon" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="169,234,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="2"/>
+                    <Button x:Name="btnBuscarRut" Content="Buscar Rut" Grid.Column="2" HorizontalAlignment="Left" Margin="149,196,0,0" VerticalAlignment="Top" Width="75" Click="btnBuscarRut_Click"/>
+                    <Label Grid.ColumnSpan="2" Content="Apellidos" HorizontalAlignment="Left" Margin="88,273,0,0" VerticalAlignment="Top" Width="76"/>
+                    <TextBox x:Name="txtApellidoContra" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="169,273,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="2"/>
+                    <Label Content="Calculo Prima" Grid.Column="2" HorizontalAlignment="Left" Margin="199,234,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="txtPrima" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="316,237,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="txtEdad" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="445,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False" Visibility="Hidden"/>
+                    <TextBox Name="txtEstadoCivilPrima" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="490,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False" Visibility="Hidden"/>
+                    <TextBox Name="txtSexoPrima" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="499,177,-9,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False" Visibility="Hidden"/>
+                    <Button Content="Calcular" Grid.Column="2" HorizontalAlignment="Left" Margin="461,240,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabEliminar" Header="Eliminar Cliente" Margin="18,-2,-22,0">
+                <Grid Background="White" Margin="0,3,0,-3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="775*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="        Seguros BeLife &#xD;&#xA;        Eliminar Cliente" Grid.Column="2" HorizontalAlignment="Left" Margin="247,148,0,0" VerticalAlignment="Top" FontSize="22" Height="78" Width="238"/>
+                    <Label x:Name="lblEliminar" Content="Ingrese un rut" Grid.Column="2" HorizontalAlignment="Left" Margin="323,243,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtEliminar" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="299,277,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
+                    <Button x:Name="btnEliminar" Content="Eliminar" Grid.Column="2" HorizontalAlignment="Left" Margin="332,319,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
+                </Grid>
+            </TabItem>
         </TabControl>
+        <Image Margin="225,58,38,278" Source="Logo BeLife.png" Stretch="Fill"/>
 
     </Grid>
 </Window>

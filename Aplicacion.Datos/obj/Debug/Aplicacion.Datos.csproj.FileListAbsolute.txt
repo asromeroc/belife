@@ -10,15 +10,15 @@ D:\INSTITUTO\PROYECTO VISUAL STUDIO\SolucionBeLife\Aplicacion.Datos\obj\Debug\Ap
 D:\INSTITUTO\PROYECTO VISUAL STUDIO\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csproj.CopyComplete
 D:\INSTITUTO\PROYECTO VISUAL STUDIO\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.dll
 D:\INSTITUTO\PROYECTO VISUAL STUDIO\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.pdb
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\bin\Debug\Aplicacion.Datos.dll.config
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\bin\Debug\Aplicacion.Datos.dll
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\bin\Debug\Aplicacion.Datos.pdb
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\bin\Debug\EntityFramework.dll
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\bin\Debug\EntityFramework.SqlServer.dll
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\bin\Debug\EntityFramework.xml
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\bin\Debug\EntityFramework.SqlServer.xml
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csprojResolveAssemblyReference.cache
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csproj.CoreCompileInputs.cache
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csproj.CopyComplete
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.dll
-D:\NET\SolucionBeLife\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.pdb
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\bin\Debug\Aplicacion.Datos.dll.config
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\bin\Debug\Aplicacion.Datos.dll
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\bin\Debug\Aplicacion.Datos.pdb
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\bin\Debug\EntityFramework.dll
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\bin\Debug\EntityFramework.SqlServer.dll
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\bin\Debug\EntityFramework.xml
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\bin\Debug\EntityFramework.SqlServer.xml
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csproj.CoreCompileInputs.cache
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csproj.CopyComplete
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.dll
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.pdb
+D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csprojResolveAssemblyReference.cache

@@ -28,5 +28,7 @@ namespace Aplicacion.Datos
     
         public virtual Cliente Cliente { get; set; }
         public virtual Plan Plan { get; set; }
+
+        
     }
 }

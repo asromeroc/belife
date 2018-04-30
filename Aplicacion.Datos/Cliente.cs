@@ -14,7 +14,7 @@ namespace Aplicacion.Datos
     
     public partial class Cliente
     {
-        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cliente()
         {
             this.Contratoes = new HashSet<Contrato>();
@@ -29,7 +29,11 @@ namespace Aplicacion.Datos
     
         public virtual EstadoCivil EstadoCivil { get; set; }
         public virtual Sexo Sexo { get; set; }
-        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Contrato> Contratoes { get; set; }
+
+
+        
+
     }
 }
