@@ -22,3 +22,15 @@ D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Da
 D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.dll
 D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.pdb
 D:\NET\3\SolucionBeLife3\SolucionBeLife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csprojResolveAssemblyReference.cache
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\bin\Debug\Aplicacion.Datos.dll.config
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\bin\Debug\Aplicacion.Datos.dll
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\bin\Debug\Aplicacion.Datos.pdb
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\bin\Debug\EntityFramework.dll
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\bin\Debug\EntityFramework.xml
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csprojResolveAssemblyReference.cache
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csproj.CoreCompileInputs.cache
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.csproj.CopyComplete
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.dll
+C:\Users\Pedro\Documents\GitHub\belife\Aplicacion.Datos\obj\Debug\Aplicacion.Datos.pdb
