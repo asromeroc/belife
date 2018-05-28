@@ -79,7 +79,7 @@
                     </Button>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabListar_Copy" Header="Registrar Contrato" Margin="0,-2,-18,0" HorizontalAlignment="Right" Width="109">
+            <TabItem x:Name="tabListar_Copy" Header="Registrar Contrato" Margin="0,-2,-107,0" HorizontalAlignment="Right" Width="109">
                 <Grid x:Name="dgListarCliente1" Background="White" Margin="0,-2,1,-3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0"/>
@@ -115,14 +115,15 @@
                     <Label Grid.ColumnSpan="2" Content="Apellidos" HorizontalAlignment="Left" Margin="88,273,0,0" VerticalAlignment="Top" Width="76"/>
                     <TextBox x:Name="txtApellidoContra" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="169,273,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145" Grid.ColumnSpan="2"/>
                     <Label Content="Calculo Prima" Grid.Column="2" HorizontalAlignment="Left" Margin="199,234,0,0" VerticalAlignment="Top"/>
-                    <TextBox Name="txtPrima" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="316,237,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="txtPrima" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="316,237,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+                    <TextBox Name="txtPrima1" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="316,237,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
                     <TextBox Name="txtEdad" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="445,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False" Visibility="Hidden"/>
                     <TextBox Name="txtEstadoCivilPrima" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="490,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False" Visibility="Hidden"/>
                     <TextBox Name="txtSexoPrima" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="499,177,-9,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False" Visibility="Hidden"/>
                     <Button Content="Calcular" Grid.Column="2" HorizontalAlignment="Left" Margin="461,240,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabEliminar" Header="Eliminar Cliente" Margin="18,-2,-22,0">
+            <TabItem x:Name="tabEliminar" Header="Eliminar Cliente" Margin="-99,-2,95,0">
                 <Grid Background="White" Margin="0,3,0,-3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="11*"/>
@@ -133,6 +134,49 @@
                     <Label x:Name="lblEliminar" Content="Ingrese un rut" Grid.Column="2" HorizontalAlignment="Left" Margin="323,243,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtEliminar" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="299,277,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="138"/>
                     <Button x:Name="btnEliminar" Content="Eliminar" Grid.Column="2" HorizontalAlignment="Left" Margin="332,319,0,0" VerticalAlignment="Top" Width="75" Click="btnEliminar_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Listar Contrato" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="104" Margin="12,-3,-12,0">
+                <Grid Background="White">
+                    <DataGrid x:Name="dgListarContrat" HorizontalAlignment="Left" Height="197" Margin="22,179,0,0" VerticalAlignment="Top" Width="754"/>
+                    <TextBox x:Name="txtNumfiltrar" HorizontalAlignment="Left" Height="36" Margin="22,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
+                    <Button x:Name="btnFiltrarCont" Content="Filtrar" HorizontalAlignment="Left" Margin="168,138,0,0" VerticalAlignment="Top" Width="108" Height="36" Click="btnFiltrarCont_Click">
+                    </Button>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabListarContrato_Copy" Header="Actualizar Cliente" Margin="19,-3,-23,1" HorizontalAlignment="Left" Width="108">
+                <Grid Background="White" Margin="0,2,0,-2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="437*"/>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="100*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="164*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblNombres_Copy" Content="Nombres" Grid.Column="2" HorizontalAlignment="Left" Margin="61,225,0,0" VerticalAlignment="Top" Height="26" Width="59"/>
+                    <Label x:Name="lblApellido_Copy" Content="Apellidos" Grid.Column="2" HorizontalAlignment="Left" Margin="61,265,0,0" VerticalAlignment="Top" Width="59" Height="26" RenderTransformOrigin="0.593,0.385"/>
+                    <TextBox x:Name="txtActNombre" IsEnabled="False" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="139,225,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
+                    <TextBox x:Name="txtActApellido" IsEnabled="False"  Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="139,268,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="242"/>
+                    <Label x:Name="lblFechaNacimiento_Copy"   Content="Fecha Nacimiento" Grid.Column="2" Margin="45,307,283,58"/>
+                    <TextBox x:Name="txtActRutBuscar" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="281,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146"/>
+                    <DatePicker x:Name="dpActFechaNacimiento" IsEnabled="False" Grid.Column="2" HorizontalAlignment="Left" Margin="159,307,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lblRut_Copy" Content="Ingrese rut a modificar" Grid.Column="2" HorizontalAlignment="Left" Margin="297,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.792,1.626"/>
+                    <Label Content="Sexo" Grid.Column="3" HorizontalAlignment="Left" Margin="22,225,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                    <Label x:Name="lblEstadoCivil_Copy" Content="Estado Civil" Grid.Column="2" Margin="423,265,76,100" Grid.ColumnSpan="3"/>
+                    <ComboBox x:Name="cbxActSexo" IsEnabled="False"  Grid.Column="4" HorizontalAlignment="Left" Margin="47,229,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3">
+                        <ComboBoxItem Content="Hombre" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Content="Mujer" HorizontalAlignment="Left" Width="118"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cbxActEstadoCivil" IsEnabled="False"  Grid.Column="4" HorizontalAlignment="Left" Margin="47,269,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3">
+                        <ComboBoxItem Content="Soltero(a)" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Content="Casado(a)" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Content="Divorciado(a)" HorizontalAlignment="Left" Width="118"/>
+                        <ComboBoxItem Content="Viudo(a)" HorizontalAlignment="Left" Width="118"/>
+                    </ComboBox>
+                    <Button x:Name="btnActBuscarRut" Content="Buscar Rut" Grid.Column="4" HorizontalAlignment="Left" Margin="17,173,0,0" VerticalAlignment="Top" Width="75" Click="btnActBuscarRut_Click"/>
+                    <Button x:Name="btnActualizarCliente" IsEnabled="False" Grid.ColumnSpan="2" Content="Actualizar" Grid.Column="4" HorizontalAlignment="Left" Margin="40,326,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizarCliente_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

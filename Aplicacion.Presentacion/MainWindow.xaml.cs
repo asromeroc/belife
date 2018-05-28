@@ -36,6 +36,14 @@ namespace Aplicacion.Presentacion
 
             }
             ActualizarLista();
+            ActualizarListaContra();
+
+        }
+
+        private void ActualizarListaContra()
+        {
+            dgListarContrat.ItemsSource = null;
+            dgListarContrat.ItemsSource = conector.Contratoes.ToList();
 
         }
 
@@ -50,7 +58,7 @@ namespace Aplicacion.Presentacion
 
         }
 
-
+        
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
         
@@ -59,9 +67,9 @@ namespace Aplicacion.Presentacion
             
             int idSexo = 0;
             int idEstadoCivil = 0;
-            //string edad;
 
-            //Valida nombres
+
+            //valida nombres
             if (string.IsNullOrEmpty(txtNombres.Text))
             {
 
@@ -71,6 +79,7 @@ namespace Aplicacion.Presentacion
                 return;
 
             }
+
             //valida apellidos
             if (string.IsNullOrEmpty(txtApellidos.Text))
             {
@@ -80,32 +89,34 @@ namespace Aplicacion.Presentacion
                 return;
 
             }
-            //valida rut
+
+            //valida Rut
             if (string.IsNullOrEmpty(txtRut.Text))
             {
 
-                MessageBox.Show("Debe el rut");
+                MessageBox.Show("Debe ingresar un rut");
                 txtRut.Focus();
                 return;
 
             }
+
             //Valida sexo
             if (cbSexo.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe seleccionar sexo");
-                cbSexo.Focus();
-                return;
+            MessageBox.Show("Debe seleccionar sexo");
+            cbSexo.Focus();
+            return;
+            }
+            if (cbHombre.IsSelected)
+            {
+                    //id sexo = hombre
+                    idSexo = 1;
                 }
-                if (cbHombre.IsSelected)
-                {
-                        //id sexo = hombre
-                        idSexo = 1;
-                    }
-                if (cbMujer.IsSelected)
-                {
-                        //id sexo = mujer
-                        idSexo = 2;
-                    }
+            if (cbMujer.IsSelected)
+            {
+                    //id sexo = mujer
+                    idSexo = 2;
+                }
                 
 
             //valida estado civil
@@ -142,6 +153,7 @@ namespace Aplicacion.Presentacion
                 {
                     MessageBox.Show("Debe seleccionar una fecha");
                     dpInsertarFechaNacimiento.Focus();
+                    return;
                 }
                 
                 DateTime fechaNacimiento = (DateTime)dpInsertarFechaNacimiento.SelectedDate;
@@ -192,79 +204,153 @@ namespace Aplicacion.Presentacion
         private void btnRegistrarContrato_Click(object sender, RoutedEventArgs e)
         {
 
-            Contrato cont = new Contrato();
-            string cod1 = "VID01";
-            string cod2 = "VID02";
-            string cod3 = "VID03";
-            string cod4 = "VID04";
-            string cod5 = "VID05";
-
-            //numero de contrato
-            string numContrato = DateTime.Now.ToString("yyyy") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("dd") + DateTime.Now.ToString("hh") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss");
-            cont.Numero = numContrato;
-
-            //IdPlan
-            if (cbxContratos.SelectedIndex == 0)
+            try
             {
-                cont.CodigoPlan = cod1;
+
+                Contrato cont = new Contrato();
+                string cod1 = "VID01";
+                string cod2 = "VID02";
+                string cod3 = "VID03";
+                string cod4 = "VID04";
+                string cod5 = "VID05";
+
+                txtPrima.IsEnabled = false;
+                //declaracion
+                cont.Observaciones = txtDeclaracion.Text;
+
+                //numero de contrato
+                string numContrato = DateTime.Now.ToString("yyyy") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("dd") + DateTime.Now.ToString("hh") + DateTime.Now.ToString("mm") + DateTime.Now.ToString("ss");
+                cont.Numero = numContrato;
 
 
-            }
-            else if (cbxContratos.SelectedIndex == 1)
-            {
-                cont.CodigoPlan = cod2;
-            }
-            else if (cbxContratos.SelectedIndex == 2)
-            {
-                cont.CodigoPlan = cod3;
-            }
-            else if (cbxContratos.SelectedIndex == 3)
-            {
-                cont.CodigoPlan = cod4;
-            }
-            else if (cbxContratos.SelectedIndex == 4)
-            {
-                cont.CodigoPlan = cod5;
-            }
-
-            // fecha de creacion
-
-            DateTime fechaCreacion;
-            fechaCreacion = DateTime.Now;
-            cont.FechaCreacion = fechaCreacion;
-
-            // Fecha inicio Vigencia
-            cont.FechaInicioVigencia = dpInicioVigencia.SelectedDate.Value;
+                //rut
+                cont.RutCliente = txtRut1.Text;
+                //IdPlan
+                if (cbxContratos.SelectedIndex == 0)
+                {
+                    cont.CodigoPlan = cod1;
 
 
-            //fechaFinVigencia 
-            cont.FechaFinVigencia = dpInicioVigencia.SelectedDate.Value.AddYears(1);
+                }
+                else if (cbxContratos.SelectedIndex == 1)
+                {
+                    cont.CodigoPlan = cod2;
+                }
+                else if (cbxContratos.SelectedIndex == 2)
+                {
+                    cont.CodigoPlan = cod3;
+                }
+                else if (cbxContratos.SelectedIndex == 3)
+                {
+                    cont.CodigoPlan = cod4;
+                }
+                else if (cbxContratos.SelectedIndex == 4)
+                {
+                    cont.CodigoPlan = cod5;
+                }
 
-            //Vigencia
+                // fecha de creacion
 
-            cont.Vigente = true;
+                DateTime fechaCreacion;
+                fechaCreacion = DateTime.Now;
+                cont.FechaCreacion = fechaCreacion;
 
-            //Declaracion salud
-
-            if (cbxDeclaracionSalud.SelectedIndex == 0)
-            {
-                cont.DeclaracionSalud = true;
-
-            }
-            else if (cbxDeclaracionSalud.SelectedIndex == 1)
-            {
-                cont.DeclaracionSalud = false;
-            }
-
-            //declara
-            //coment
+                // Fecha inicio Vigencia
+                cont.FechaInicioVigencia = dpInicioVigencia.SelectedDate.Value;
 
 
+                //fechaFinVigencia 
+                cont.FechaFinVigencia = dpInicioVigencia.SelectedDate.Value.AddYears(1);
+
+                //Vigencia
+
+                cont.Vigente = true;
+
+                //Declaracion salud
+
+                if (cbxDeclaracionSalud.SelectedIndex == 0)
+                {
+                    cont.DeclaracionSalud = true;
+
+                }
+                else if (cbxDeclaracionSalud.SelectedIndex == 1)
+                {
+                    cont.DeclaracionSalud = false;
+                }
+
+                //CODIGO NUEVOOOOOO =================================
+
+
+
+
+                DateTime hoy = DateTime.Today;
+                Cliente cli = conector.Clientes.First(cl => cl.RutCliente == cont.RutCliente);
+
+
+
+                if (string.IsNullOrEmpty(txtPrima1.Text))
+                {
+                    MessageBox.Show("Debe calcular la prima antes de registrar el contrato");
+                    txtPrima.Focus();
+                    return;
+                }
+
+                if (dpInicioVigencia.SelectedDate == null)
+                {
+                    MessageBox.Show("Debe seleccionar una fecha de inicio de vigencia");
+                    dpInsertarFechaNacimiento.Focus();
+                    return;
+                }
+
+                if (cbxDeclaracionSalud.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar declaracion de salud");
+                    cbSexo.Focus();
+                    return;
+                }
+
+                if (cbxContratos.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar un contrato");
+                    cbSexo.Focus();
+                    return;
+                }
+
+                string value1 = txtPrima1.Text;
+                Double Prima_total = Convert.ToDouble(value1);
+
+
+                MessageBox.Show(Prima_total.ToString());
+
+               
+
+                Plan pl = conector.Plans.First(p => p.IdPlan == cont.CodigoPlan);
+                Double p_base = pl.PrimaBase;
+
+
+                cont.PrimaAnual = Prima_total + p_base;
+                MessageBox.Show((cont.PrimaAnual).ToString());
+                cont.PrimaMensual = cont.PrimaAnual / 12;
+
+
+                conector.Contratoes.Add(cont);
+                conector.Configuration.ValidateOnSaveEnabled = false;
+                conector.SaveChanges();
+
+                MessageBox.Show("Se ha Ingresado un cliente");
+                txtFiltrarRegistro.Text = string.Empty;
+                txtDeclaracion.Text = string.Empty;
+                ActualizarListaContra();
         }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+}
 
-        //ELIMINAR CLIENTE.
-        private void btnEliminar_Click(object sender, RoutedEventArgs e)
-        {
+            //ELIMINAR CLIENTE.
+            private void btnEliminar_Click(object sender, RoutedEventArgs e)
+                    {
             try
             {
                 string rut = txtEliminar.Text;
@@ -353,7 +439,7 @@ namespace Aplicacion.Presentacion
             
             
         }
-
+        //CALCULO PRIMA
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -432,6 +518,7 @@ namespace Aplicacion.Presentacion
                 //MessageBox.Show(plan);
 
                 txtPrima.Text = valorPlan.ToString()+" UF";
+                txtPrima1.Text = valorPlan.ToString();
                 txtPrima.IsEnabled = false;
                 
             
@@ -443,6 +530,162 @@ namespace Aplicacion.Presentacion
             }
             
     }
+
+        private void btnFiltrarCont_Click(object sender, RoutedEventArgs e)
+        {
+            string numcontr = txtNumfiltrar.Text;
+            List<Contrato> c = conector.Contratoes.Where(ca => ca.Numero == numcontr).ToList();
+            dgListarContrat.ItemsSource = c;
+        }
+
+        private void btnActualizarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            int cod1 = 1;
+            int cod2 = 2;
+
+
+            try
+            {
+                //validaciones
+
+                //valida nombres
+                if (string.IsNullOrEmpty(txtActNombre.Text))
+                {
+
+                    MessageBox.Show("Debe ingresar los nombres");
+                    txtActNombre.Focus();
+
+                    return;
+
+                }
+
+                //valida apellidos
+                if (string.IsNullOrEmpty(txtActApellido.Text))
+                {
+
+                    MessageBox.Show("Debe ingresar los apellidos");
+                    txtActApellido.Focus();
+                    return;
+
+                }
+
+                //valida Rut
+                if (string.IsNullOrEmpty(txtActRutBuscar.Text))
+                {
+
+                    MessageBox.Show("Debe ingresar un rut");
+                    txtRut.Focus();
+                    return;
+
+                }
+
+                DateTime fechaNacimiento = (DateTime)dpActFechaNacimiento.SelectedDate;
+
+                string fecha = fechaNacimiento.ToString("dd/MM/yyyy");
+
+                int edadEnDias = ((TimeSpan)(DateTime.Now - fechaNacimiento)).Days;
+                edadEnDias = edadEnDias / 365;
+
+                if (edadEnDias < 18)
+                {
+                    MessageBox.Show("El cliente debe ser mayor de 18 años");
+                    dpInsertarFechaNacimiento.Focus();
+                    return;
+                }
+
+                string rut = txtActRutBuscar.Text;
+                Cliente cli = conector.Clientes.First(c => c.RutCliente == rut);
+
+                cli.Nombres = txtActNombre.Text;
+                cli.Apellidos = txtActApellido.Text;
+                cli.FechaNacimiento = fecha;
+                
+
+                if (cbxActSexo.SelectedIndex == 0)
+                {
+                    cli.IdSexo = cod1;
+
+                }
+                else if (cbxActSexo.SelectedIndex == 1)
+                {
+                    cli.IdSexo = cod2;
+
+                }
+
+                //ID ESTADO CIVIL
+                if (cbxActEstadoCivil.SelectedIndex == 0)
+                {
+                    cli.IdEstadoCivil = 1;
+
+                }
+                else if (cbxActEstadoCivil.SelectedIndex == 1)
+                {
+                    cli.IdEstadoCivil = 2;
+
+                }
+                else if (cbxActEstadoCivil.SelectedIndex == 2)
+                {
+                    cli.IdEstadoCivil = 3;
+
+                }
+                else if (cbxActEstadoCivil.SelectedIndex == 3)
+                {
+                    cli.IdEstadoCivil = 4;
+
+                }
+
+                conector.SaveChanges();
+                MessageBox.Show("se ha actualizado al cliente");
+                ActualizarLista();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+        }
+
+        private void btnActBuscarRut_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                string rut = txtActRutBuscar.Text;
+                int contador = conector.Clientes.Count(cli => cli.RutCliente == rut);
+                if (contador == 0)
+                {
+
+                    MessageBox.Show("No hay personas con ese rut");
+                }
+                else
+                {
+                    Cliente c = conector.Clientes.First(cli => cli.RutCliente == rut);
+                    txtActNombre.IsEnabled = true;
+                    txtActApellido.IsEnabled = true;
+                    cbxActEstadoCivil.IsEnabled = true;
+                    cbxActSexo.IsEnabled = true;
+                    dpActFechaNacimiento.IsEnabled = true;
+                    btnActualizarCliente.IsEnabled = true;
+
+                    txtActNombre.Text = c.Nombres;
+                    txtActApellido.Text = c.Apellidos;
+                    cbxActSexo.SelectedIndex = c.IdSexo - 1;
+                    cbxActEstadoCivil.SelectedIndex = c.IdEstadoCivil - 1;
+                    dpActFechaNacimiento.Text = c.FechaNacimiento;
+
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+
+            }
+        }
     }
     
 }
